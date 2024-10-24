@@ -3,12 +3,11 @@ export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/images/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        heroDesktop: `url(./src/images/hero.png)`,
+        heroDesktop: `url(/images/hero.png)`,
       },
       screens: {
         xs: "375px",
