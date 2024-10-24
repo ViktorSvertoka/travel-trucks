@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        heroDesktop: `url(/images/hero.png)`,
+        heroDesktop: `url(./images/hero.png)`,
       },
       screens: {
         xs: "375px",
