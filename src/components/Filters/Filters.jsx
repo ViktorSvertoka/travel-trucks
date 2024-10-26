@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import icons from "../../icons/sprite.svg";
@@ -16,39 +17,56 @@ const LocationSchema = Yup.object().shape({
 const Filters = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
+  const [hasText, setHasText] = useState(false);
+
+  useEffect(() => {
+    dispatch(changeFilter({ location: "", form: "", features: [] }));
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col">
       <Formik
+        enableReinitialize={true}
         initialValues={{
-          location: filters.location,
-          form: filters.form,
-          features: filters.features,
+          location: filters.location || "",
+          form: filters.form || "",
+          features: filters.features || [],
         }}
         validationSchema={LocationSchema}
         onSubmit={(values) => {
           dispatch(changeFilter(values));
         }}
       >
-        {({ errors }) => (
+        {({ errors, setFieldValue }) => (
           <Form>
             <div className="relative flex flex-col justify-start mb-10">
               <label
-                className="font-medium text-[16px] leading-6 text-text mb-2"
+                className="font-medium text-[16px] leading-6 text-gray mb-2"
                 htmlFor="location"
               >
                 Location
               </label>
               <Field
-                className="rounded-xl px-12 py-4 w-[360px] h-14 bg-inputs border-none placeholder:font-normal placeholder:text-[16px] placeholder:leading-6 placeholder:text-main"
+                className={`rounded-xl px-12 py-4 w-[360px] h-14 bg-inputs outline-none focus:border-black focus:border placeholder:font-normal placeholder:text-[16px] placeholder:leading-6 ${
+                  hasText
+                    ? "placeholder:text-main"
+                    : "placeholder:text-gray-600"
+                }`}
                 name="location"
                 type="text"
                 placeholder="City"
+                onInput={(e) => {
+                  setHasText(e.target.value !== "");
+                  setFieldValue("location", e.target.value);
+                }}
               />
               <svg
                 className="absolute left-5 bottom-5 pointer-events-none"
                 width="20"
                 height="20"
+                style={{
+                  fill: hasText ? "#101828" : "#6c717b",
+                }}
               >
                 <use href={`${icons}#black-map`} />
               </svg>
