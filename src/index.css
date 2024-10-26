@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  margin: 0 auto;
-}
-
 body {
   font-family: "Inter", sans-serif;
   line-height: 1.5;
@@ -25,12 +21,8 @@ p {
   margin: 0;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-li,
-ul {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -42,7 +34,6 @@ a {
 }
 
 button {
-  border: none;
   cursor: pointer;
 }
 
