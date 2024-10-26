@@ -24,9 +24,14 @@ const filtersPersistConfig = {
   storage,
 };
 
+const trucksPersistConfig = {
+  key: "trucks",
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
-    trucks: truckReducer,
+    trucks: persistReducer(trucksPersistConfig, truckReducer),
     filters: persistReducer(filtersPersistConfig, filtersReducer),
     favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
   },
