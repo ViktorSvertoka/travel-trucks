@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="bg-heroDesktop bg-no-repeat bg-cover h-[696px] flex justify-start items-center pl-[64px]">
-      <div className="max-w-[571px]">
+    <section className="bg-heroDesktop bg-no-repeat bg-cover w-[100%] h-[93vh] flex justify-start items-center pl-[64px]">
+      <div className="">
         <h1 className="font-semibold text-[48px] leading-[0.67] text-inputs mb-[16px]">
           Campers of your dreams
         </h1>
