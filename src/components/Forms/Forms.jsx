@@ -1,4 +1,3 @@
-// src/components/ClientForm.jsx
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import DatePicker from "react-datepicker";
@@ -13,7 +12,10 @@ const Schema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   comment: Yup.string(),
-  date: Yup.date().required("Date is required"),
+  dateRange: Yup.object({
+    start: Yup.date().nullable().required("Please select a start date"),
+    end: Yup.date().nullable().required("Please select an end date"),
+  }),
 });
 
 const Forms = () => {
@@ -29,7 +31,7 @@ const Forms = () => {
         initialValues={{
           name: "",
           email: "",
-          date: "",
+          dateRange: { start: null, end: null },
           comment: "",
         }}
         validationSchema={Schema}
@@ -40,7 +42,7 @@ const Forms = () => {
       >
         {({ errors, values, touched, setFieldValue }) => (
           <Form>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <label htmlFor="name" className="sr-only">
                   Name
@@ -54,8 +56,7 @@ const Forms = () => {
                 />
                 {touched.name && errors.name && (
                   <div className="text-buttonHover text-sm mt-1">
-                    {" "}
-                    {errors.name}{" "}
+                    {errors.name}
                   </div>
                 )}
               </div>
@@ -73,8 +74,7 @@ const Forms = () => {
                 />
                 {touched.email && errors.email && (
                   <div className="text-buttonHover text-sm mt-1">
-                    {" "}
-                    {errors.email}{" "}
+                    {errors.email}
                   </div>
                 )}
               </div>
@@ -85,15 +85,29 @@ const Forms = () => {
                 </label>
                 <DatePicker
                   id="date"
-                  selected={values.date}
-                  onChange={(date) => setFieldValue("date", date)}
-                  className="border-none rounded-lg p-4 w-full bg-inputs focus:outline-none focus:ring-2 focus:ring-main"
-                  placeholderText="Booking date*"
+                  selected={values.dateRange?.start}
+                  onChange={(dates) => {
+                    const [start, end] = dates;
+                    setFieldValue("dateRange", { start, end });
+                  }}
+                  startDate={values.dateRange?.start}
+                  endDate={values.dateRange?.end}
+                  selectsRange
+                  closeOnScroll={true}
+                  minDate={new Date()}
                   locale="en-GB"
+                  dateFormat="d MMMM, yyyy"
+                  placeholderText="Booking date*"
+                  className="border-none rounded-lg p-4 w-full bg-inputs focus:outline-none focus:ring-2 focus:ring-main"
                 />
-                {touched.date && errors.date && (
+                {touched.dateRange?.start && errors.dateRange?.start && (
                   <div className="text-buttonHover text-sm mt-1">
-                    {errors.date}
+                    {errors.dateRange.start}
+                  </div>
+                )}
+                {touched.dateRange?.end && errors.dateRange?.end && (
+                  <div className="text-buttonHover text-sm mt-1">
+                    {errors.dateRange.end}
                   </div>
                 )}
               </div>
