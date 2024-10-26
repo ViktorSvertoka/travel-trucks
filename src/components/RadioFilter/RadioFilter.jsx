@@ -10,10 +10,14 @@ const RadioFilter = ({ name, value, icon, label }) => (
       value={value}
     />
     <p className="paragraph border border-grayLight hover:border-buttonHover rounded-xl w-[112px] h-[96px] cursor-pointer flex items-center flex-col justify-center transition-all duration-300 ease-in-out font-medium text-[16px] leading-6 tracking-tight text-center text-main">
-      <svg width="32" height="32">
+      <svg className="pb-[8px]" width="32" height="32">
         <use href={`${icons}#${icon}`} />
       </svg>
-      {label}
+      {label.split(" ").map((word, index) => (
+        <span key={index} className={index === 1 ? "block" : ""}>
+          {word}
+        </span>
+      ))}
     </p>
   </label>
 );
