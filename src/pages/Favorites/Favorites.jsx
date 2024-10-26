@@ -12,14 +12,12 @@ const Favorites = () => {
   const allTrucks = useSelector(selectTrucks);
   const loading = useSelector(isLoading);
 
-  // Загружаем данные только если список грузовиков пустой
   useEffect(() => {
     if (allTrucks.length === 0) {
       dispatch(fetchTrucks());
     }
   }, [allTrucks, dispatch]);
 
-  // Отображаем Loader, пока данные не загружены
   if (loading) {
     return <Loader />;
   }
