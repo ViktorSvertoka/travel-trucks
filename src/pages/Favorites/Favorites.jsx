@@ -21,7 +21,7 @@ const Favorites = () => {
         <h2 className="font-semibold text-2xl leading-tight text-main">
           Your Favorites
         </h2>
-        <div className="mt-[100px]">
+        <div className="mt-[20px]">
           <TruckList filteredTrucks={favoriteTrucks} />
         </div>
       </div>

@@ -11,8 +11,8 @@ const TruckList = ({ filteredTrucks }) => {
 
   if (filteredTrucks.length === 0) {
     return (
-      <p className="font-semibold text-[20px] leading-[1.2] text-main">
-        Sorry, there are no campers!
+      <p className="font-semibold text-[20px] leading-[1.2] text-main mt-[100px]">
+        Your favorites list is empty!
       </p>
     );
   }
