@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { fetchTruckDetails } from "../../redux/truck/operations";
-import Card from "../../components/Card/Card";
+import Card from "../../components/TruckCard/TruckCard";
 
 const Details = () => {
   const dispatch = useDispatch();

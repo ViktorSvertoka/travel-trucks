@@ -14,7 +14,7 @@ const activeLink = ({ isActive }) => {
   );
 };
 
-const Card = () => {
+const TruckCard = () => {
   const truck = useSelector(selectTruck);
   const { name, rating, reviews, location, price, gallery, description } =
     truck;
@@ -80,4 +80,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default TruckCard;
