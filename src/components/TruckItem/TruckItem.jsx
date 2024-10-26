@@ -32,7 +32,9 @@ const TruckItem = ({ truck }) => {
             {name}
           </h2>
           <div className="flex items-center gap-3">
-            <p>{`€ ${Number(price).toFixed(2)}`}</p>
+            <p className="font-semibold text-[24px] leading-[1.33] text-main">{`€ ${Number(
+              price
+            ).toFixed(2)}`}</p>
             <svg
               width="26"
               height="24"
