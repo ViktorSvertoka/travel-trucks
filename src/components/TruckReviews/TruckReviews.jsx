@@ -21,18 +21,22 @@ const TruckReviews = () => {
                 </div>
                 <div>
                   <h3>{item.reviewer_name}</h3>
-                  {[...Array(totalStars)].map((_, starIndex) => (
-                    <svg
-                      width="16"
-                      height="16"
-                      fill={
-                        starIndex < item.reviewer_rating ? "#ffc531" : "#f2f4f7"
-                      }
-                      key={nanoid()}
-                    >
-                      <use href={`${icons}#gray-star`} />
-                    </svg>
-                  ))}
+                  <div className="flex items-center">
+                    {[...Array(totalStars)].map((_, starIndex) => (
+                      <svg
+                        width="16"
+                        height="16"
+                        fill={
+                          starIndex < item.reviewer_rating
+                            ? "#ffc531"
+                            : "#f2f4f7"
+                        }
+                        key={nanoid()}
+                      >
+                        <use href={`${icons}#gray-star`} />
+                      </svg>
+                    ))}
+                  </div>
                 </div>
               </div>
               <p className="font-normal text-[16px] leading-[1.5] text-text">
