@@ -1,18 +1,9 @@
 import { useSelector } from "react-redux";
 import { Navigate, NavLink, Route, Routes } from "react-router-dom";
-import clsx from "clsx";
 import icons from "../../icons/sprite.svg";
 import { selectTruck } from "../../redux/truck/selectors";
 import TruckFeatures from "../TruckFeatures/TruckFeatures";
 import TruckReviews from "../TruckReviews/TruckReviews";
-
-const activeLink = ({ isActive }) => {
-  return clsx(
-    "text-main no-underline",
-    isActive &&
-      "underline decoration-buttonHover decoration-4 underline-offset-[25px]"
-  );
-};
 
 const TruckCard = () => {
   const truck = useSelector(selectTruck);
@@ -59,14 +50,32 @@ const TruckCard = () => {
         {description}
       </p>
 
-      <ul className="flex gap-[40px] font-semibold text-[20px] leading-[1.2] mt-[60px] relative">
-        <li className="after:content-[''] after:absolute after:left-0 after:bottom-[-24px] after:w-full after:h-[1px] after:grayLight">
-          <NavLink className={activeLink} to="features">
+      <ul className="flex gap-[40px] font-semibold text-[20px] leading-[1.2] mt-[60px] mb-[44px] relative">
+        <li className="relative after:content-[''] after:absolute after:left-0 after:bottom-[-24px] after:w-[1312px] after:h-px after:bg-grayLight">
+          <NavLink
+            className={({ isActive }) =>
+              `relative z-10 font-semibold text-[20px] leading-[1.2] ${
+                isActive
+                  ? "underline decoration-buttonHover decoration-4 underline-offset-[27px]"
+                  : "text-main no-underline"
+              }`
+            }
+            to="features"
+          >
             Features
           </NavLink>
         </li>
-        <li className="after:content-[''] after:absolute after:left-0 after:bottom-[-24px] after:w-full after:h-[1px] after:grayLight">
-          <NavLink className={activeLink} to="reviews">
+        <li className="relative after:content-[''] after:absolute after:left-0 after:bottom-[-24px] after:h-px after:bg-grayLight">
+          <NavLink
+            className={({ isActive }) =>
+              `relative z-10 font-semibold text-[20px] leading-[1.2] ${
+                isActive
+                  ? "underline decoration-buttonHover decoration-4 underline-offset-[27px]"
+                  : "text-main no-underline"
+              }`
+            }
+            to="reviews"
+          >
             Reviews
           </NavLink>
         </li>
