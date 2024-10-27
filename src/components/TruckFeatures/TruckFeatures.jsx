@@ -7,6 +7,13 @@ import { truckDetails } from "../../data/truckDetails";
 const TruckFeatures = () => {
   const truck = useSelector(selectTruck);
 
+  const capitalizeFirstLetter = (text) => {
+    if (typeof text === "string" && text.length > 0) {
+      return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+    return text;
+  };
+
   return (
     <div className="flex mt-12 gap-10">
       <div className="bg-inputs rounded-lg p-11 w-[631px]">
@@ -22,7 +29,7 @@ const TruckFeatures = () => {
               className="flex justify-between font-medium text-base leading-6 text-main text-center"
             >
               <p>{label}</p>
-              <p>{truck[key]}</p>
+              <p>{capitalizeFirstLetter(truck[key])}</p>
             </div>
           ))}
         </div>
