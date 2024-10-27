@@ -56,10 +56,12 @@ To run the application locally, follow these steps:
 
 ![Screenshoot](./public/assets/screenshoot-2.png)
 
-![Screenshoot](./public/assets/screenshoot-3.png)
-
 ![Screenshoot](./public/assets/screenshoot-4.png)
 
 ![Screenshoot](./public/assets/screenshoot-5.png)
 
 ![Screenshoot](./public/assets/screenshoot-6.png)
+
+![Screenshoot](./public/assets/screenshoot-3.png)
+
+![Screenshoot](./public/assets/screenshoot-7.png)
