@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale } from "react-datepicker";
 import enGB from "date-fns/locale/en-GB";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 registerLocale("en-GB", enGB);
 
@@ -19,6 +20,34 @@ const Schema = Yup.object().shape({
 });
 
 const Forms = () => {
+  const handleSubmit = async (values, { resetForm }) => {
+    toast.loading("Sending...");
+
+    const formData = new FormData();
+    formData.append("access_key", "10ad8243-f9c1-4ae4-ade9-aea832e9e732");
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("message", values.comment || "No comment provided");
+    formData.append("start_date", values.dateRange.start);
+    formData.append("end_date", values.dateRange.end);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.dismiss();
+      toast.success("Form Submitted Successfully");
+      resetForm();
+    } else {
+      toast.dismiss();
+      toast.error(`Error: ${data.message}`);
+    }
+  };
+
   return (
     <div className="flex flex-col border border-grayLight rounded-lg p-11 w-full max-w-[641px] mx-auto">
       <h3 className="font-semibold text-xl text-main mb-2">
@@ -35,10 +64,7 @@ const Forms = () => {
           comment: "",
         }}
         validationSchema={Schema}
-        onSubmit={(values, { resetForm }) => {
-          toast.success("You successfully sent the form!");
-          resetForm();
-        }}
+        onSubmit={handleSubmit}
       >
         {({ errors, values, touched, setFieldValue }) => (
           <Form>
