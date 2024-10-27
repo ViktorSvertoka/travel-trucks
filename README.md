@@ -1,4 +1,6 @@
-# Travel Trucks Rental App
+# Travel Trucks
+
+The **Travel Trucks Rental App** is a user-friendly platform designed for adventurers and travel enthusiasts. It allows users to explore a variety of campers, curate a favorites list, and organize selections for easy trip planning. With features to view detailed camper profiles and manage bookings, this app makes it easier than ever to gear up for your next road adventure in the perfect travel truck!
 
 ## Technologies Used
 
@@ -30,3 +32,34 @@
 - Date-fns: JavaScript date utility library.
 - Autoprefixer: Tool that adds vendor prefixes to CSS for cross-browser compatibility.
 - localStorage: To persist user favorites across sessions.
+- web3forms: Sending a form by email
+
+## Features
+
+- Browse a list of available campers.
+- Filter campers by location.
+- Filter campers by available equipment.
+- Filter campers by type.
+- Add and remove campers from a favorites list.
+- Persist favorites list across page refreshes using localStorage.
+
+## Getting Started
+
+To run the application locally, follow these steps:
+
+1. Clone the repository: git clone https://github.com/ViktorSvertoka/travel-trucks.git
+2. Install dependencies: `npm install`
+3. Run the app: `npm run dev`
+4. Open http://localhost:5173 in your browser.
+
+![Screenshoot](./public/assets/screenshoot-1.png)
+
+![Screenshoot](./public/assets/screenshoot-2.png)
+
+![Screenshoot](./public/assets/screenshoot-3.png)
+
+![Screenshoot](./public/assets/screenshoot-4.png)
+
+![Screenshoot](./public/assets/screenshoot-5.png)
+
+![Screenshoot](./public/assets/screenshoot-6.png)
