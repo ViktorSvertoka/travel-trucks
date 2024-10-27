@@ -20,8 +20,10 @@ const Details = () => {
         <title>Details</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
-      <section className="py-12 px-16 flex flex-col">
-        <TruckCard />
+      <section className="py-12 flex flex-col">
+        <div className="container">
+          <TruckCard />
+        </div>
       </section>
     </>
   );

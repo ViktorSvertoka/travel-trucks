@@ -50,7 +50,7 @@ const TruckCard = () => {
         {description}
       </p>
 
-      <ul className="flex gap-[40px] font-semibold text-[20px] leading-[1.2] mt-[60px] mb-[44px] relative">
+      <ul className="flex gap-[40px] font-semibold text-[20px] leading-[1.2] mt-[60px] mb-[84px] relative">
         <li className="relative after:content-[''] after:absolute after:left-0 after:bottom-[-24px] after:w-[1312px] after:h-px after:bg-grayLight">
           <NavLink
             className={({ isActive }) =>

@@ -30,19 +30,21 @@ const Catalog = () => {
       <Helmet>
         <title>Catalog</title>
       </Helmet>
-      <section className="flex gap-16 py-12 px-16">
-        <Filters />
-        <TruckList filteredTrucks={filteredTrucks.slice(0, visibleCount)} />
-      </section>
-      {!loading && visibleCount < filteredTrucks.length && (
-        <button
-          className="block border border-grayLight hover:border-buttonHover w-36 h-14 mx-auto mt-8 mb-12 bg-transparent rounded-full text-main font-medium text-lg leading-6 tracking-tight transition-colors duration-250 ease-in-out"
-          type="button"
-          onClick={onClickButton}
-        >
-          Load more
-        </button>
-      )}
+      <div className="container">
+        <section className="flex gap-16 py-12">
+          <Filters />
+          <TruckList filteredTrucks={filteredTrucks.slice(0, visibleCount)} />
+        </section>
+        {!loading && visibleCount < filteredTrucks.length && (
+          <button
+            className="block border border-grayLight hover:border-buttonHover w-36 h-14 mx-auto mt-8 mb-12 bg-transparent rounded-full text-main font-medium text-lg leading-6 tracking-tight transition-colors duration-250 ease-in-out"
+            type="button"
+            onClick={onClickButton}
+          >
+            Load more
+          </button>
+        )}
+      </div>
     </>
   );
 };

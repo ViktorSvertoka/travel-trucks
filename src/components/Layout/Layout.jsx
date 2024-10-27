@@ -5,9 +5,11 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <header className="border-b border-badges py-6 px-16 bg-inputs flex items-center justify-between relative">
-        <Logo />
-        <Navigation />
+      <header className="border-b border-badges py-6 bg-inputs relative">
+        <div className="container flex items-center justify-between">
+          <Logo />
+          <Navigation />
+        </div>
       </header>
       <main>
         <Outlet />
