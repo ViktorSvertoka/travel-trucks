@@ -53,6 +53,10 @@ To run the application locally, follow these steps:
 3. Run the app: `npm run dev`
 4. Open http://localhost:5173 in your browser.
 
+## License
+
+This project is licensed under the MIT License.
+
 ![Screenshoot](./public/assets/screenshoot-1.png)
 
 ![Screenshoot](./public/assets/screenshoot-2.png)
