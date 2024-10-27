@@ -42,6 +42,7 @@ The **Travel Trucks Rental App** is a user-friendly platform designed for advent
 - Filter campers by type.
 - Add and remove campers from a favorites list.
 - Persist favorites list across page refreshes using localStorage.
+- Automatically redirect users to a custom 404 page if an invalid URL is entered.
 
 ## Getting Started
 
