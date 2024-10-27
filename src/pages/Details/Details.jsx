@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { fetchTruckDetails } from "../../redux/truck/operations";
-import Card from "../../components/TruckCard/TruckCard";
+import TruckCard from "../../components/TruckCard/TruckCard";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Details = () => {
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
       <section className="py-12 px-16 flex flex-col">
-        <Card />
+        <TruckCard />
       </section>
     </>
   );
